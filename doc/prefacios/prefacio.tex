@@ -1,0 +1,141 @@
+\chapter*{}
+
+\input{portada/portada_2}
+
+
+\cleardoublepage
+\thispagestyle{empty}
+
+\begin{center}
+{\large\bfseries Cyberlynx. Securización y análisis de vectores de ataque en sistemas Linux mediante modelos de inteligencia artificial avanzados}\\
+\end{center}
+\begin{center}
+Mario Daniel Castro Almenzar\\
+\end{center}
+
+\noindent{\textbf{Palabras clave}: ciberseguridad, análisis, logs, Linux, MITRE, \gls{SIEM}, \gls{IA}, clustering}\\
+
+\vspace{0.7cm}
+\noindent{\textbf{Resumen}}\\
+
+En un contexto de evolución tecnológica constante y un incremento notable en la cantidad de ataques diarios, se vuelve imperativo contar con sistemas de seguridad robustos y eficientes. Este trabajo presenta un estudio sobre diversos modelos de inteligencia artificial para detectar vectores de ataque en sistemas operativos Linux. Para esta investigación, se adoptó un enfoque integral que involucra la simulación de ataques reales mediante el marco MITRE \gls{ATT&CK}, y la creación de \textit{datasets} de \textit{logs}, tanto manuales como sintéticos, utilizando técnicas de \textit{prompt-engineering}. \\
+
+El desarrollo del proyecto se estructuró en varias fases clave. Inicialmente, se creó un \textit{dataset} de \textit{logs} a través de la simulación de ataques en un entorno controlado usando contenedores Docker y herramientas como el framework \gls{CALDERA}. Posteriormente, se procedió a la recopilación de otros conjuntos de datos y a la generación de un \textit{dataset} sintético. Estos \textit{logs} se preprocesaron aplicando técnicas de vectorización de texto y reducción de dimensionalidad, junto con algoritmos de \textit{clustering} como K-means, DBSCAN y \textit{clustering} jerárquico, para identificar patrones y anomalías en los datos. \\
+
+Los resultados muestran que los modelos de \textit{clustering} jerárquico, en conjunto con técnicas de vectorización de texto como \gls{TF}-\gls{IDF} o \textit{Count Vectorizer}, han mejorado significativamente la detección de incidentes de seguridad en sistemas Linux. Específicamente, se observó que los métodos de \textit{clustering} jerárquico y aglomerativo proporcionan una mayor precisión para identificar vectores de ataque en comparación con otros métodos evaluados. \\
+
+Este trabajo no solo evidencia la efectividad de los modelos de inteligencia artificial en la detección de ciberataques, sino que también compara estos resultados con otras investigaciones recientes en este ámbito. Se concluye que la incorporación de estas técnicas de \gls{IA} en herramientas de ciberseguridad preexistentes, como los Sistemas de Gestión de Información y Eventos de Seguridad (\gls{SIEM}), podría mejorar notablemente la capacidad de respuesta y mitigación de amenazas.
+
+
+\cleardoublepage
+
+
+\thispagestyle{empty}
+
+
+\begin{center}
+{\large\bfseries Cyberlynx. Securization and analysis of attack vectors in Linux systems using advanced artificial intelligence models}\\
+\end{center}
+\begin{center}
+Mario Daniel, Castro Almenzar\\
+\end{center}
+
+\noindent{\textbf{Keywords}: cybersecurity, analysis, logs, Linux, MITRE, \gls{SIEM}, AI, clustering}\\
+
+\vspace{0.7cm}
+\noindent{\textbf{Abstract}}\\
+
+In a context of constant technological evolution and a significant increase in daily attacks, it becomes imperative to have robust and efficient security systems. This work presents a study on various artificial intelligence models for detecting attack vectors in Linux operating systems. For this research, a comprehensive approach was adopted involving the simulation of real attacks using the MITRE \gls{ATT&CK} framework, and the creation of \textit{datasets} of \textit{logs}, both manual and synthetic, using \textit{prompt-engineering} techniques. \\
+
+The project development was structured in several key phases. Initially, a \textit{dataset} of \textit{logs} was created through the simulation of attacks in a controlled environment using Docker containers and tools such as the \gls{CALDERA} framework. Subsequently, other data sets were compiled, and a synthetic \textit{dataset} was generated. These \textit{logs} were preprocessed using text vectorization and dimensionality reduction techniques, along with \textit{clustering} algorithms such as K-means, DBSCAN, and \textit{hierarchical clustering}, to identify patterns and anomalies in the data. \\
+
+The results show that hierarchical \textit{clustering} models, in conjunction with text vectorization techniques such as \gls{TF}-\gls{IDF} and \textit{Count Vectorizer}, have significantly improved the detection of security incidents in Linux systems. Specifically, it was observed that hierarchical and agglomerative clustering methods provide greater accuracy in identifying attack vectors compared to other methods evaluated. \\
+
+This work not only demonstrates the effectiveness of artificial intelligence models in detecting cyberattacks but also compares these results with other recent research in this field. It concludes that the incorporation of these AI techniques into pre-existing cybersecurity tools, such as Security Information and Event Management Systems (\gls{SIEM}), could significantly enhance the capability for response and threat mitigation.
+
+\chapter*{}
+\thispagestyle{empty}
+
+\noindent\rule[-1ex]{\textwidth}{2pt}\\[4.5ex]
+
+Yo, \textbf{Mario Daniel Castro Almenzar}, alumno del grado en Ingeniería Informática de la \textbf{Escuela Técnica Superior
+de Ingenierías Informática y de Telecomunicación de la Universidad de Granada}, con DNI 75928205F, autorizo la
+ubicación de la siguiente copia de mi Trabajo Fin de Grado en la biblioteca del centro para que pueda ser
+consultada por las personas que lo deseen.
+
+\vspace{6cm}
+
+\noindent Fdo: Mario Daniel Castro Almenzar
+
+\vspace{2cm}
+
+\begin{flushright}
+Granada a \DTMtoday
+\end{flushright}
+
+
+\chapter*{}
+\thispagestyle{empty}
+
+\noindent\rule[-1ex]{\textwidth}{2pt}\\[4.5ex]
+
+D. \textbf{Pablo García Sánchez}, Profesor del Área de Inteligencia Artificial del Departamento de Ingeniería de Computadores, Automática y Robótica de la Universidad de Granada.
+
+\vspace{0.5cm}
+
+D. \textbf{Rafael Alejandro Rodríguez Gómez}, Profesor del Área de Telemática del Departamento de Teoría de la Señal, Telemática y Comunicaciones de la Universidad de Granada.
+
+
+\vspace{0.5cm}
+
+\textbf{Informan:}
+
+\vspace{0.5cm}
+
+Que el presente trabajo, titulado \textit{\textbf{Cyberlynx, Securización y análisis de vectores de ataque en sistemas Linux mediante modelos de inteligencia artificial avanzados}},
+ha sido realizado bajo su supervisión por \textbf{Mario Daniel Castro Almenzar}, y autorizamos la defensa de dicho trabajo ante el tribunal
+que corresponda.
+
+\vspace{0.5cm}
+
+Y para que conste, expiden y firman el presente informe en Granada a 24 de junio de 2024.
+
+\vspace{1cm}
+
+\textbf{Los directores:}
+
+\vspace{5cm}
+
+\noindent \textbf{Pablo García Sánchez \ \ \ \ \ \ \ \ \ \ \ \ \ Rafael Alejandro Rodríguez Gómez}
+
+\chapter*{Agradecimientos}
+\thispagestyle{empty}
+
+\vspace{1cm}
+
+
+Me gustaría empezar agradeciendo a la Escuela por todos estos años, en los que además de formarme en aquello que me gusta, he conocido a personas maravillosas, tanto compañeros que han acabado siendo grandes amigos como profesores con los que más allá de las clases he compartido mi pasión por la Informática, el \textit{hacking} y los videojuegos.\\
+
+Quiero agradecer especialmente a Pablo y a Rafa, que a lo largo de estos meses han procurado guiarme para que fuese capaz de llegar hasta aquí, y han depositado la confianza en que pudiera entregar algo de lo que estuviese suficientemente orgulloso. \\
+
+A nivel más personal, quiero agradecer a mis padres por haberme brindado la oportunidad de estudiar aquello que quería y su apoyo incondicional. Y por último, a mi abuela y a mi novia, que sin duda a través de sus consejos y mensajes de ánimo, día tras día, han conseguido que no tirara la toalla frente a todas las adversidades que se han ido planteando. Espero corresponderos al menos una pequeña parte de todo lo que hacéis por mí.
+
+\newpage
+
+\thispagestyle{empty}
+
+\begin{flushright}
+    \small
+    \vspace*{\fill}
+    \begin{minipage}{0.6\textwidth}
+        \begin{flushright}
+            \textit{``Rodearte de gente mejor que} \\
+            \textit{tú puede ser tu mayor virtud.''} \\
+            \textbf{Bernardo Quintero}
+        \end{flushright}
+    \end{minipage}
+    \vspace*{\fill}
+\end{flushright}
+
+
+

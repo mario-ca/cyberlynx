@@ -1,0 +1,151 @@
+\chapter{Repositorio del proyecto}
+
+% ********************************************************************
+
+\vspace{-5mm}
+
+En este capítulo se describe cómo se ha alojado este Trabajo de Fin de Grado en GitHub. Aunque se trata de un trabajo de investigación y no se ha seguido una metodología de \gls{CI/CD}, se ha procurado aplicar buenas prácticas como trabajar en ramas separadas para cada parte del proyecto, utilizar \textit{Issues}, \textit{Milestones} y \textit{\gls{PR}s} para integrar los cambios en la rama principal de forma controlada.
+
+\vspace{-2mm}
+
+
+\subsubsection*{Licencia del proyecto: \gls{MIT}}
+
+Se ha utilizado la licencia MIT \cite{saltzer2020origin} para este proyecto. Este tipo de licencia permite a los usuarios ejecutar, copiar, modificar, fusionar, publicar, distribuir, sublicenciar y/o vender copias del Software, siempre que se incluya el aviso de copyright y la renuncia de garantía. 
+
+\vspace{-2mm}
+
+
+\subsubsection*{Metodología utilizada}
+
+Como se ha indicado anteriormente, este Trabajo se ha fundamentado en investigar acerca de cómo trabajar con \textit{logs} de Linux, el funcionamiento de los \gls{SIEM} y cómo aplicar algoritmos de \textit{clustering} para tratar de detectar vectores de ataque sobre este tipo de sistemas. Por consiguiente, no se ha llevado a cabo un proceso de desarrollo convencional, de modo que se ha trabajado utilizando herramientas distintas como Google Colab, y una vez finalizada la investigación, se ha alojado en la forja. Las actividades desarrolladas se han dividido en distintos \textit{Milestone}, tal y como se muestra en la Figura \ref{tab:project_milestones}. 
+
+\begin{table}[H]
+\centering
+\scriptsize
+\begin{tabularx}{\textwidth}{|p{0.25\textwidth}|X|}
+\hline
+\rowcolor{graylight}\texttt{Milestone} & \texttt{Descripción} \\
+\hline
+Configuración del entorno de simulación de ataques & Configuración y documentación del entorno de pruebas para la simulación de ataques.  \\
+\hline
+\textit{Datasets} & Creación y organización de los conjuntos de datos necesarios para el proyecto.  \\ 
+\hline
+\textit{Scripts} de preprocesado & Desarrollo y prueba de \textit{scripts} para la limpieza y preparación de datos.   \\
+\hline
+Implementación del \textit{clustering} & Desarrollo e integración de algoritmos de \textit{clustering} para el análisis de datos.   \\
+\hline
+\end{tabularx}
+\caption{Listado de \textit{Milestones} utilizados para agrupar objetivos a cumplir}
+\label{tab:project_milestones}
+\end{table}
+
+\newpage
+
+\subsubsection*{Estructura del repositorio}
+
+Este repositorio cuenta con un fichero \texttt{README.md} principal, que explica a alto nivel en qué se basa esta investigación, además de la licencia \gls{MIT} y un \texttt{.gitignore} que incluye archivos de ámbito privado como es el caso de los \textit{datsets} de terceros, aunque en caso de que el tribunal requiera ver el contenido de los mismos, este se pondrá a su entera disposición sin problema alguno. 
+
+
+A continuación se muestra en la Tabla \ref{tab:project_structure} la estructura completa del repositorio del Trabajo de Fin de Grado, que ha sido titulado como \textit{\textbf{Cyberynx}}, ya que esta investigación ha sido en el ámbito de ciberseguridad y, en España, el término Lince está relacionado con un tipo de certificaciones de Seguridad \cite{lince_certification}.
+
+\begin{table}[H]
+\centering
+\scriptsize
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{3cm}|>{\raggedright\arraybackslash}X|}
+\hline
+\rowcolor{graylight}\texttt{Archivo/Directorio} & \texttt{Descripción} \\
+\hline
+\texttt{.gitignore} & Excluidos ficheros como los \textit{datasets} de terceros. \\
+\hline
+\texttt{LICENSE} & Documento de licencia. \\
+\hline
+\texttt{README.md} & Documento base del proyecto. \\
+\hline
+\texttt{SRC/} & 
+\begin{itemize}
+    \item \texttt{DATASETS/} - Datasets de entrada.
+    \begin{itemize}
+        \item \texttt{RAW/} - Logs sin procesar.
+        \item \texttt{JSON/} - Logs en formato JSON.
+        \item \texttt{CSV/} - Logs en formato CSV.
+    \end{itemize}
+    \item \texttt{CONFIG/} - Configuración del entorno.
+    \begin{itemize}
+        \item \texttt{KALI/} - Configuración máquina Kali Linux.
+        \item \texttt{CONTAINERS/} - Configuración contenedores Docker.
+    \end{itemize}
+    \item \texttt{SCRIPTS/} - \textit{Scripts} de procesamiento de datos.
+    \item \texttt{CLUSTERING/} - \textit{Notebooks} para \textit{clustering} y análisis de resultados.
+\end{itemize} \\
+\hline
+\texttt{DOC/} & 
+\begin{itemize}
+    \item \texttt{APENDICES/} - Apéndices.
+    \begin{itemize}
+        \item \texttt{A\_Formacion.tex}
+        \item \texttt{B\_Repositorio.tex}
+        \item \texttt{C\_Caldera.tex}
+    \end{itemize}
+    \item \texttt{BIBLIOGRAFIA/}
+    \begin{itemize}
+        \item \texttt{bibliografia.bib} - Referencias bibliográficas.
+    \end{itemize}
+    \item \texttt{CAPITULOS/} - Capítulos del TFG.
+    \begin{itemize}
+        \item \texttt{01\_Introduccion.tex}
+        \item \texttt{02\_Planificacion.tex}
+        \item \texttt{03\_EstadoDelArte.tex}
+        \item \texttt{04\_Metodologia.tex}
+        \item \texttt{05\_Desarrollo.tex}
+        \item \texttt{06\_Analisis.tex}
+        \item \texttt{07\_Conclusiones.tex}
+    \end{itemize}
+    \item \texttt{GLOSARIO/} - Glosario de términos.
+    \begin{itemize}
+        \item \texttt{entradas\_glosario.tex}
+    \end{itemize}
+    \item \texttt{IMAGENES/} - Imágenes utilizadas.
+    \item \texttt{PORTADA/} - Documentos de portada.
+    \begin{itemize}
+        \item \texttt{portada\_2.tex}
+        \item \texttt{portada.tex}
+    \end{itemize}
+    \item \texttt{PREFACIOS/} - Prefacios.
+    \begin{itemize}
+        \item \texttt{prefacio.tex}
+    \end{itemize}
+    \item \texttt{Makefile} - Script para la construcción del proyecto.
+    \item \texttt{proyecto.pdf} - Documento PDF final. 
+    \vspace{2mm}
+    \item \texttt{proyecto.tex} - Archivo principal de LaTeX.
+    \item \texttt{PRESENTACION.pdf} - Presentación del proyecto.
+\end{itemize} \\
+\hline
+\end{tabularx}
+\caption{Estructura jerárquica del repositorio Cyberlynx}
+\label{tab:project_structure}
+\end{table}
+
+\newpage
+
+De la estructura jerárquica visible en la Tabla \ref{tab:project_structure}, se establece una división en dos carpetas principales: 
+
+\begin{itemize}
+    \item \texttt{SRC}, que contiene los \textit{scripts} utilizados para el preprocesamiento de los \textit{datasets}, ficheros de configuración empleados para la simulación de ataques y documentación aclaratoria sobre los comandos a utilizar para replicar dicha simulación, así como los \textit{notebooks} en los que se ha llevado a cabo la implementación del \textit{clustering}. \\
+    \item  \texttt{DOC}, que almacena la documentación de la memoria. Esta se ha desarrollado a través de la versión gratuita de la plataforma \textit{opensource} Overleaf \cite{overleaf}, por lo que una vez finalizada la memoria ha sido alojada en el repositorio.
+\end{itemize}
+
+\subsubsection*{Enlace al repositorio}
+
+Para acceder al repositorio de este Trabajo de Fin de Grado debe utilizarse el siguiente enlace:
+
+\begin{center}
+    \texttt{\url{https://github.com/mario-ca/cyberlynx}}
+\end{center}
+
+
+% ********************************************************************
+
+
+        

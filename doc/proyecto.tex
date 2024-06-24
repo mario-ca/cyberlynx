@@ -1,0 +1,412 @@
+\documentclass[a4paper,11pt]{book}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Paquete para incluir bloques de código en el documento.
+\usepackage{listings}
+
+% Paquete para manejar la codificación de entrada, permitiendo la escritura de caracteres especiales directamente.
+\usepackage[utf8]{inputenc}
+
+% Paquete para la localización en español del documento.
+\usepackage[spanish, es-tabla]{babel}
+
+% Paquete para la gestión de fechas y horas, con configuración regional estadounidense.
+\usepackage[useregional]{datetime2}
+
+\usepackage{multibib}
+
+% Crea dos bibliografías nuevas, cada una con su título
+\newcites{art}{Referencias Bibliográficas}
+\newcites{web}{Recursos en Internet}
+
+% Paquete para la generación de enlaces y referencias dentro del documento PDF.
+\usepackage[pdfborder={000}]{hyperref} %referencia
+
+% Paquete para la creación y gestión de glosarios y acrónimos.
+\usepackage[style=list]{glossaries}
+%\usepackage[style=long, cols=2,border=plain,toc=true,number=none]{glossaries}
+
+% Paquete para personalizar el formato de los títulos de secciones, subsecciones, etc.
+\usepackage{titlesec}
+
+% Paquete para poder poner páginas en horizontal
+\usepackage{pdflscape}
+
+% Paquete para ajustar el ancho de la página
+%\usepackage{geometry}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Coma decimal en lugar de punto decimal en el modo matemático.
+\decimalpoint
+% Paquete para la alineación de columnas en tablas alrededor de un punto decimal.
+\usepackage{dcolumn}
+
+% Definición de un nuevo tipo de columna para la alineación de números decimales.
+\newcolumntype{.}{D{.}{\esperiod}{-1}}
+
+% Redefinición del punto como separador decimal para el idioma español.
+\makeatletter
+\addto\shorthandsspanish{\let\esperiod\es@period@code}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Ajuste del espaciado antes y después de las secciones.
+\titlespacing*{\section}{0pt}{1ex}{0.25ex plus 0.1ex}
+
+%\usepackage[chapter]{algorithm}
+\RequirePackage{verbatim}
+%\RequirePackage[Glenn]{fncychap}
+
+% Paquete para personalizar los encabezados y pies de página.
+\usepackage{fancyhdr}
+
+% Paquete para la inclusión de gráficos.
+\usepackage{graphicx}
+
+% Paquete para forzar el flujo del contenido después de la página actual.
+\usepackage{afterpage}
+
+% Paquete para tablas largas que se extienden a través de múltiples páginas.
+\usepackage{longtable}
+
+% Paquete para mejorar el posicionamiento de objetos flotantes, como figuras y tablas.
+\usepackage{float}
+
+% Paquete para personalizar los títulos de los objetos flotantes, como figuras y tablas.
+\usepackage[font=footnotesize]{caption}
+
+% Paquete para personalizar las listas, como las listas enumeradas.
+\usepackage{enumitem}
+
+% Paquete para crear gráficos con TikZ.
+\usepackage{tikz}
+
+% Paquete para mejorar la apariencia y funcionalidad de las tablas.
+\usepackage{array}
+
+% Paquete para crear tablas con ancho automático de las columnas.
+\usepackage{tabularx}
+
+% Paquete de la American Mathematical Society para mejorar la escritura y la estructura de fórmulas matemáticas.
+\usepackage{amsmath, amsthm}
+
+% Paquete para la escritura de algoritmos.
+\usepackage{algorithm}
+
+% Paquete para escribir algoritmos en un estilo pseudo-código.
+\usepackage{algpseudocode}
+
+% Paquete para mejorar los encabezados y pies de página.
+\usepackage{fancyhdr}
+
+% Paquete para la creación de archivos de contenido.
+\usepackage{filecontents}
+
+% Paquete para la inclusión de código resaltado.
+\usepackage{minted}
+\usemintedstyle{autumn}
+
+% Paquete para la creación de cuadros de código resaltado.
+\usepackage{mdframed}  
+
+% Paquete para la escritura de algoritmos con estructuras de control.
+\usepackage{algorithmicx}
+
+% Paquete para la escritura de algoritmos en pseudocódigo
+\usepackage{algpseudocodex}
+
+% Paquete para la inclusión de páginas de documentos PDF externos.
+\usepackage{pdfpages}
+
+% Paquete para la gestión de URL en el documento.
+\usepackage{url}
+
+% Paquete para la estabilidad de las notas al pie en entornos de tablas y figuras.
+\usepackage[stable]{footmisc}
+
+% Paquete para la creación y gestión de índices.
+\usepackage{index}
+
+% Para que el símbolo de euro (€) se vea correctamente en tu documento LaTeX
+\usepackage{textcomp}
+\usepackage{eurosym}
+
+% Para la página en horizontal
+\usepackage{pdflscape}
+
+% Para mejores líneas horizontales
+\usepackage{booktabs}
+
+% Para añadir recuadros de colorines
+\usepackage{tcolorbox}
+\usepackage{lipsum}
+\usepackage{color}
+
+% Para poner colores a las tablas
+\usepackage{colortbl}
+\usepackage[table]{xcolor}
+%\definecolor{blue-uwu}{RGB}{225,250,250}
+\definecolor{graylight}{gray}{0.9}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Configurar el estilo de las definiciones
+\newtheoremstyle{miestilo}  % Nombre del estilo
+  {5pt}                      % Espacio antes
+  {5pt}                      % Espacio después
+  {\normalfont}              % Fuente del cuerpo
+  {}                         % Indentación
+  {\bfseries}                % Fuente del encabezado
+  {.}                        % Puntuación después del encabezado
+  {0.5em}                    % Espacio después del encabezado
+  {}                         % Especificación del encabezado
+
+\theoremstyle{miestilo}
+\newtheorem{definition}{Definición}
+
+% Para la línea horizontal superior más corta
+\newcommand{\shorthrule}{\noindent\rule[0.5ex]{0.82\textwidth}{0.4pt}}
+
+% Para la línea horizontal inferior ajustada al texto
+\newcommand{\fullhrule}{\noindent\rule[0.5ex]{\linewidth}{0.4pt}}
+
+% Para la plantilla del algoritmo sin líneas dobles
+\newenvironment{myalgorithm}[1][htb]
+  {\begin{algorithm}[#1]%
+   \vspace{2pt}%
+  }{
+  \vspace{2pt}%
+    \end{algorithm}%
+  }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Traducir las palabras reservadas
+\renewcommand{\algorithmicrequire}{\textbf{Datos:}}
+\renewcommand{\algorithmicensure}{\textbf{Resultado:}}
+\renewcommand{\algorithmicwhile}{\textbf{mientras}}
+\renewcommand{\algorithmicdo}{\textbf{hacer}}
+\renewcommand{\algorithmicend}{\textbf{fin}}
+\renewcommand{\algorithmicif}{\textbf{si}}
+\renewcommand{\algorithmicthen}{\textbf{entonces}}
+\renewcommand{\algorithmicelse}{\textbf{si no}}
+\renewcommand{\algorithmicfor}{\textbf{para}}
+\renewcommand{\algorithmicforall}{\textbf{para cada}}
+\renewcommand{\algorithmicrepeat}{\textbf{repetir}}
+\renewcommand{\algorithmicuntil}{\textbf{hasta que}}
+\renewcommand{\algorithmicreturn}{\textbf{retornar}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Define custom colors
+\definecolor{darkgreen}{rgb}{0.0, 0.5, 0.0}
+
+\makeglossaries
+
+% ********************************************************************
+% Re-usable information
+% ********************************************************************
+\newcommand{\myTitle}{Cyberlynx\xspace}
+\newcommand{\myDegree}{Grado en Ingeniería Informática\xspace}
+\newcommand{\myName}{Mario Daniel Castro Almenzar\xspace}
+\newcommand{\myProf}{Pablo García Sánchez\xspace}
+\newcommand{\myOtherProf}{Rafael Alejandro Rodríguez Gómez\xspace}
+%\newcommand{\mySupervisor}{Put name here\xspace}
+\newcommand{\myFaculty}{Escuela Técnica Superior de Ingenierías Informática y de Telecomunicación\xspace}
+\newcommand{\myFacultyShort}{E.T.S. de Ingenierías Informática y de Telecomunicación\xspace}
+\newcommand{\myDepartment}{Departamento de Ingeniería de Computadores, Automática y Robótica\xspace}
+\newcommand{\myUni}{\protect{Universidad de Granada}\xspace}
+\newcommand{\myLocation}{Granada\xspace}
+\newcommand{\myTime}{\today\xspace}
+\newcommand{\myVersion}{Version 0.1\xspace}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hypersetup{
+pdfauthor = {\myName (email (en) ugr (punto) es)},
+pdftitle = {\myTitle},
+pdfsubject = {},
+pdfkeywords = {palabra_clave1, palabra_clave2, palabra_clave3, ...},
+pdfcreator = {LaTeX con el paquete ....},
+pdfproducer = {pdflatex}
+}
+
+\makeindex
+
+% Definición de comandos que me son tiles:
+\renewcommand{\indexname}{Índice alfabético}
+\renewcommand{\glossaryname}{Glosario}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LO]{\leftmark}
+\fancyhead[RE]{\rightmark}
+\fancyhead[RO,LE]{\textbf{\thepage}}
+\renewcommand{\chaptermark}[1]{\markboth{\textbf{#1}}{}}
+\renewcommand{\sectionmark}[1]{\markright{\textbf{\thesection. #1}}}
+
+\setlength{\headheight}{1.5\headheight}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+%Definimos los tipos teorema, ejemplo y definición podremos usar estos tipos
+%simplemente poniendo \begin{teorema} \end{teorema} ...
+\newtheorem{teorema}{Teorema}[chapter]
+\newtheorem{ejemplo}{Ejemplo}[chapter]
+\newtheorem{definicion}{Definición}[chapter]
+
+\definecolor{gray97}{gray}{.97}
+\definecolor{gray75}{gray}{.75}
+\definecolor{gray45}{gray}{.45}
+\definecolor{gray30}{gray}{.94}
+
+\lstset{ frame=Ltb,
+     framerule=0.5pt,
+     aboveskip=0.5cm,
+     framextopmargin=3pt,
+     framexbottommargin=3pt,
+     framexleftmargin=0.1cm,
+     framesep=0pt,
+     rulesep=.4pt,
+     backgroundcolor=\color{gray97},
+     rulesepcolor=\color{black},
+     %
+     stringstyle=\ttfamily,
+     showstringspaces = false,
+     basicstyle=\scriptsize\ttfamily,
+     commentstyle=\color{gray45},
+     keywordstyle=\bfseries,
+     %
+     numbers=left,
+     numbersep=6pt,
+     numberstyle=\tiny,
+     numberfirstline = false,
+     breaklines=true,
+   }
+ 
+% minimizar fragmentado de listados
+\lstnewenvironment{mylisting}[1][]
+   {\lstset{#1}\pagebreak[0]}{\pagebreak[0]}
+
+\lstdefinestyle{CodigoC}
+   {
+	basicstyle=\scriptsize,
+	frame=single,
+	language=C,
+	numbers=left
+   }
+\lstdefinestyle{CodigoC++}
+   {
+	basicstyle=\small,
+	frame=single,
+	backgroundcolor=\color{gray30},
+	language=C++,
+	numbers=left
+   }
+
+ 
+\lstdefinestyle{Consola}
+   {basicstyle=\scriptsize\bf\ttfamily,
+    backgroundcolor=\color{gray30},
+    frame=single,
+    numbers=none
+   }
+
+
+\newcommand{\bigrule}{\titlerule[0.5mm]}
+
+%Para conseguir que en las páginas en blanco no ponga cabeceras
+\makeatletter
+\def\clearpage{%
+  \ifvmode
+    \ifnum \@dbltopnum =\m@ne
+      \ifdim \pagetotal <\topskip
+        \hbox{}
+      \fi
+    \fi
+  \fi
+  \newpage
+  \thispagestyle{empty}
+  \write\m@ne{}
+  \vbox{}
+  \penalty -\@Mi
+}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\small
+
+\input{portada/portada}
+\input{prefacios/prefacio}
+
+\frontmatter
+
+\footnotesize
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+
+\mainmatter
+\setlength{\parskip}{5pt}
+
+%\setcounter{page}{23}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\small
+
+\input{capitulos/01_Introduccion}
+
+\input{capitulos/02_Planificacion}
+
+\input{capitulos/03_EstadoDelArte}
+
+\input{capitulos/04_Metodologia}
+
+\input{capitulos/05_Desarrollo}
+
+\input{capitulos/06_Analisis}
+
+\input{capitulos/07_Conclusiones}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\nocite{*}
+
+% Incluye las bibliografías en el documento, con su estilo y título correspondiente
+%\bibliographystyleart{unsrt}
+%\bibliographyart{bibliografia/artículos}
+%\addcontentsline{toc}{chapter}{Referencias Bibliográficas}
+
+%\bibliographystyleweb{unsrt}
+%\bibliographyweb{bibliografia/webs}
+%\addcontentsline{toc}{chapter}{Recursos en Internet}
+
+\bibliography{bibliografia/bibliografia} 
+\addcontentsline{toc}{chapter}{Bibliografía}
+\bibliographystyle{unsrt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\appendix
+\input{apendices/A_Formacion}
+\input{apendices/B_Repositorio}
+\input{apendices/C_Caldera}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{glosario/entradas_glosario}
+\addcontentsline{toc}{chapter}{Glosario}
+\printglossary
+
+\chapter*{}
+\thispagestyle{empty}
+
+\end{document}

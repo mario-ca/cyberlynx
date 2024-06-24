@@ -1,0 +1,95 @@
+\chapter{Introducción}
+
+
+% ********************************************************************
+
+
+\section{Motivación y contexto}
+
+\subsection{El problema de la seguridad digital}
+
+En la actualidad, las personas viven continuamente conectadas. A veces, sin darse cuenta, están haciendo uso de dispositivos electrónicos manejados a un alto nivel, confiando ciegamente en la implementación que hay detrás de esa gran capa de abstracción. La tecnología se ha vuelto ubicua, presente en cada aspecto de nuestras vidas, y del mismo modo, la amplia mayoría de las personas confía ciegamente en su seguridad y en la de todas las herramientas que utilizan en su día a día, o quizás no consideran que sea algo suficientemente importante como para estar alerta. 
+
+Y en cierto modo tienen razón, nuestra labor como ingenieros informáticos es precisamente poder garantizar a los usuarios que todos sus bienes digitales estén siempre disponibles y cumplan, al menos, con las principales primitivas de seguridad descritas por la triada \gls{cia} (\textit{Confidencialidad, Integridad y Disponibilidad}).
+
+Con el paso de los años, empresas y entidades gubernamentales han empezado a aplicar estándares de certificación que les permitan tener ciertas garantías. En el caso de España, esta acreditación se lleva a cabo por parte del \gls{CCN} (\textit{Centro Criptológico Nacional}) \cite{ccn-main} a través del catálogo \gls{CPSTIC} (\textit{Catálogo de Productos y Servicios de Seguridad de las TIC del CCN}) \cite{ccn-cpstic}. Además, cada vez más empresas invierten en personal con formación en el ámbito de la seguridad y, en función del tamaño de la empresa u organismo, incluso en unidades para la gestión y análisis de riesgos a través de \gls{SOC}s (\textit{Security Operations Center}).
+
+Sin embargo, dentro del campo de la seguridad informática es bien sabido que la robustez de cualquier sistema está definida por la más débil de sus capas. Por consiguiente, es de vital importancia asegurar cada eslabón y adicionalmente llevar a cabo un seguimiento continuo de la eficacia de estas medidas. 
+
+No es sencillo encontrar una entidad que no haya sido nunca atacada. El pasado 2023 \cite{stormshield2023}, se registraron más de 28000 \gls{CVE}s (\textit{Common Vulnerabilities and Exposures}) \cite{cve-mitre}, y aunque esto resulte alarmante, la realidad es que la generalidad de problemas vienen de vulnerabilidades con una antigüedad significativa y que no han sido solucionadas por la inacción de estas entidades. Es por ello que urge el desarrollo de mecanismos que agilicen la securización de sistemas, minimizando el esfuerzo humano, de modo que este pueda atender a otras cuestiones que sí que requieran de su capacidad de decisión.
+
+\subsection{La inteligencia artificial como solución}
+
+En los últimos años, la \gls{IA} (Inteligencia Artificial) ha emergido como un poderoso aliado en la lucha contra las amenazas de seguridad. Tal y como indica la \gls{ENISA} (\textit{European Network and Information Security Agency}) \cite{enisa2020}, uno de los principales beneficios es su habilidad para automatizar la detección de amenazas. 
+
+Estos sistemas pueden examinar continuamente los flujos de datos en busca de actividades sospechosas o anómalas, algo que sería imposible o impráctico para los analistas debido al volumen y velocidad de los datos. Además, los modelos tienen la capacidad de aprender de las interacciones pasadas y mejorar continuamente su precisión y efectividad en la detección de amenazas.
+
+Todo apunta a que la IA jugará también un papel crucial en el desarrollo de sistemas de respuesta a incidentes, analizando rápidamente la causa raíz de una brecha de seguridad y sugiriendo o incluso implementando medidas correctivas para mitigar el daño. Esto es especialmente valioso en situaciones donde el tiempo es crítico, como en el caso de brechas de datos masivas o uno de los más comunes: ataques de \textit{ransomware} \cite{avtest-cyberincidents}.
+
+Es importante recalcar que, al igual que otras propuestas, esta también tiene sus limitaciones, y tras la reciente aparición de los \gls{LLM}s (\textit{Large Language Models}), vivimos en una etapa en la que se está generando una burbuja de expectativas y desinformación acerca de la misma, por lo que es necesario tener una consciencia realista del alcance actual y a corto plazo de su funcionalidad. Un claro ejemplo de ello es la aparición de \gls{LLM}s optimizados mediante técnicas de \textit{fine-tuning} que aseguran ser capaces de realizar ejercicios de \textit{pentesting} \cite{deng2023pentestgpt} de forma autónoma sobre escenarios realistas.
+
+La colaboración entre sistemas con modelos de \gls{IA} integrados y expertos humanos puede proporcionar una defensa más robusta frente a las amenazas. Mientras que la IA maneja tareas de análisis de datos, los profesionales de la seguridad pueden concentrarse en la estrategia de seguridad y la toma de decisiones críticas, aprovechando los conocimientos proporcionados por la esta para actuar de manera más informada y efectiva.
+
+Tras este breve análisis de las ventajas que aporta, resulta acertado afirmar que la integración de la inteligencia artificial en la seguridad informática no solo potencia las capacidades de detección y respuesta de las organizaciones, sino que también transforma la naturaleza del monitoreo de seguridad, haciéndolo más proactivo, predictivo y eficaz en un mundo donde los cibercriminales están constantemente evolucionando debido al crecimiento exponencial de sus recursos económicos y, en consecuencia, logísticos.
+
+\newpage
+
+% ********************************************************************
+
+\section{Objetivos}
+
+
+El propósito principal del trabajo es la securización y análisis de vectores de ataque en sistemas Linux mediante el uso de modelos avanzados de inteligencia artificial. A partir de este objetivo general, se establecen los siguientes objetivos específicos:
+
+\begin{itemize} \label{item:objetivos}
+
+    \item \textbf{OB1.} Investigar la usabilidad y morfología de los \textit{logfiles} y cómo pueden procesarse para ser interpretados.
+    \item \textbf{OB2.} Crear un \textit{dataset} a partir de los \textit{logs} generados con la simulación de ataques en sistemas Linux utilizando el marco de técnicas adversarias definidas por MITRE ATT\&CK.
+    \item \textbf{OB3.} Implementar un conjunto de algoritmos de \textit{clustering} para identificar y clasificar vectores de ataque en sistemas Linux basándose en patrones de comportamiento detectados en los \textit{datasets} generados y otros equivalentes a estos.
+    \item \textbf{OB4.} Validar los resultados obtenidos a través de una serie de métricas que permitan medir con precisión la efectividad del modelo con respecto al agrupamiento y detección de vectores de ataque, y comparar estos resultados con las herramientas de seguridad existentes.
+    \item \textbf{OB5.} Demostrar la escalabilidad y la capacidad de integración del modelo con sistemas de gestión de información y eventos de seguridad (SIEM), explorando sinergias potenciales y la mejora en la respuesta a incidentes a través de la automatización y el análisis avanzado.
+\end{itemize}
+
+\subsubsection*{Objetivos de Desarrollo Sostenible}
+
+En el desarrollo de este Trabajo de Fin de Grado (TFG) se busca contribuir a varios Objetivos de Desarrollo Sostenible (\gls{ODS}) establecidos por la \gls{ONU}, en línea con el compromiso global con la Agenda 2030. 
+
+\begin{table}[H]
+\scriptsize
+\begin{tabularx}{\textwidth}{|p{0.15\textwidth}|p{0.1\textwidth}|p{0.65\textwidth}|}
+\hline
+\rowcolor{graylight}\texttt{ODS} & \texttt{Relación} & \texttt{Justificación} \\ \hline
+ODS 4.  
+Educación de calidad & Medio & El proyecto puede contribuir a la educación de calidad al proporcionar conocimientos avanzados y técnicas en el ámbito de la ciberseguridad y la inteligencia artificial, formando a futuros profesionales en estas áreas cruciales. \\ \hline
+ODS 8. 
+Trabajo decente y crecimiento económico & Medio & La mejora de la seguridad digital puede favorecer un entorno económico más seguro y estable, promoviendo así el crecimiento económico y la creación de empleos en el sector tecnológico. \\ \hline
+ODS 9. 
+Industria, innovación e infraestructuras & Alto & La investigación y desarrollo de nuevas tecnologías de seguridad digital y su implementación en sistemas Linux fomenta la innovación y mejora las infraestructuras tecnológicas, lo cual es crucial para el desarrollo industrial. \\ \hline
+ODS 16. 
+Paz, justicia e instituciones sólidas & Alto & La seguridad tecnológica es fundamental para mantener la paz y la justicia en el ciberespacio. En esta línea, el proyecto puede contribuir a fortalecer las instituciones encargadas de la seguridad y protección de datos. \\ \hline
+\end{tabularx}
+\caption{Relación del TFG con Objetivos de Desarrollo Sostenible (\gls{ODS})}
+\label{tab:ods-relacion}
+\end{table}
+
+En la Tabla \ref{tab:ods-relacion} se presenta la relación de este proyecto con algunos de estos objetivos, así como una breve justificación de cómo se alinea cada uno con los mismos. \\
+
+% ********************************************************************
+
+\section{Estructura de la memoria}
+
+La estructura de la memoria de este Trabajo de Fin de Grado clasificado como de Investigación se organiza en siete capítulos principales y tres apéndices anexos que complementan la documentación. A continuación, se describe brevemente el contenido de cada uno de ellos: \\
+
+En primer lugar, el capitulo de \textbf{Introducción} establece el contexto sobre el cual se desarrolla este Trabajo, desde el gran problema que presenta actualmente la seguridad digital, hasta las soluciones que plantean los avances emergentes en Inteligencia Artificial. Por último, se definen los objetivos a cumplir y se indica qué estructura tendrá la memoria. A continuación, en el capítulo de \textbf{Planificación} se realiza un análisis detallado de la la temporización del proyecto y del presupuesto asignado.
+
+En tercer lugar, el capítulo de \textbf{Estado del arte} discute sobre la seguridad en sistemas operativos Linux, técnicas adversarias de MITRE \gls{ATT&CK}, modelos de inteligencia artificial para la detección de vectores de ataque y herramientas de gestión de información y eventos de seguridad (\gls{SIEM}). Seguidamente, en \textbf{Metodología de trabajo} se explora el ámbito del problema, se indica cómo se va a diseñar la implementación y se describen las tecnologías utilizadas para ello. En el capítulo de \textbf{Desarrollo e implementación} se cubre desde la simulación de ataques y generación de logs, hasta la implementación de modelos capaces de interpretar estos y hacer predicciones para identificar potenciales patrones de ataque.
+
+El capítulo sexto, titutlado \textbf{Análisis de resultados}, evalúa el modelo mediante distintas métricas seleccionadas, se estudian casos específicos, se compara con herramientas existentes y se explora la integración con sistemas \gls{SIEM}. Finalmente, en el capítulo de \textbf{Conclusiones} se resume los logros obtenidos, el impacto del proyecto en la mejora de la seguridad de sistemas Linux y se discuten futuras investigaciones y posibles mejoras y ampliaciones para la mejorar la precisión de los resultados. 
+
+En cuanto a los apéndices que complementan este Trabajo, se incluyen: \\
+
+\texttt{A. Formación Inicial}: Detalles sobre la capacitación y las habilidades técnicas iniciales requeridas antes de comenzar el desarrollo, desde cursos de \gls{ML}, \gls{DL} y \gls{NLP}, hasta la realización de máquinas de tipo \gls{CTF} para ampliar los conocimientos en ciberseguridad.
+
+\texttt{B. Repositorio del Proyecto}: Guía sobre la estructura jerárquica de ficheros y carpetas del repositorio de GitHub donde se encuentra alojada la implementación del proyecto.
+
+\texttt{C. Instalación y configuración de \gls{CALDERA}}: Guía práctica que detalla los pasos para realizar la instalación y configuración del \textit{framework} \gls{CALDERA} para la simulación de ataques sobre sistemas Linux.

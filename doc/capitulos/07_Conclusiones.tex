@@ -1,0 +1,60 @@
+\chapter{Conclusiones y trabajo futuro}
+
+% ********************************************************************
+
+\vspace{-5mm}
+
+\section{Resumen de los logros obtenidos}
+
+Tras llevar a cabo este Trabajo de investigación acerca del análisis de \textit{logs} de Linux por medio de algoritmos de \textit{clustering} para detectar potenciales vectores de ataque, y con la finalidad principal de integrar esta funcionalidad en \gls{SIEM}s para que estos mejoren los tiempos de respuesta, se han extraído las siguientes conclusiones:
+
+\begin{itemize}
+\item \texttt{Acerca de los \textit{logs} de Linux}: Los \textit{logs} de este sistema operativo son suficientemente ricos como para ser aprovechados en la detección de anomalías de distintos tipos. Se pueden identificar desde ataques remotos como fuerza bruta y denegación de servicio, hasta ataques a nivel del kernel o más bajo nivel. \\
+\item \texttt{Acerca del preprocesamiento de \textit{logs}}: Esta es la parte más crucial del proceso. Lograr un dataset bien etiquetado mejora significativamente los resultados obtenidos. Sin embargo, también puede ser muy positivo el uso datasets no etiquetados como se ha llevado a cabo en este Trabajo. \\
+\item \texttt{Acerca de los modelos de \gls{ML} utilizados}: Tras probar distintos algoritmos de \textit{clustering}, los mejores resultados se obtuvieron con \textit{k-means} y \textit{clustering} jerárquico. Aun así, sería conveniente probar otros algoritmos de aprendizaje automático como \gls{KNN}, \gls{SVM}, \textit{Random Forest}, \textit{Decision Tree}, entre otros. \\
+\item \texttt{Acerca de la integración con \gls{SIEM}s}: Desde hace algunos años se ha comenzado a integrar estas técnicas, pero el proceso es lento. Es vital seguir investigando para reducir los tiempos de detección de amenazas y generación de respuestas verdaderamente eficaces.
+\end{itemize}
+
+Con estos logros se ha demostrado que el análisis de \textit{logs} de Linux mediante técnicas de \textit{clustering} es una herramienta potente para la detección de vectores de ataque, y su integración en \gls{SIEM}s es una vía prometedora para mejorar la ciberseguridad.
+
+% ********************************************************************
+
+\newpage
+
+\section{La importancia del Software Libre}
+
+El software libre juega un papel fundamental en el avance de la tecnología y la ciencia abierta. Permite el acceso libre y gratuito a información, herramientas y recursos que pueden ser utilizados y modificados por cualquier persona. En el contexto de la ciberseguridad, el software libre ofrece varias ventajas cruciales.
+
+La transparencia es una de estas ventajas. Al ser accesible para todos, cualquier persona puede revisar el código fuente y asegurarse de que no contiene vulnerabilidades o puertas traseras. Esto aumenta la confianza en la seguridad y fiabilidad del software utilizado. Un ejemplo reciente es el de la biblioteca de compresión \texttt{xz} \cite{goodin2024xzbackdoor}, donde se descubrió una puerta trasera en su código. La comunidad de código abierto reaccionó rápidamente, identificando y parcheando la vulnerabilidad, demostrando así la eficacia del escrutinio público en la detección y corrección de fallos de seguridad.
+
+Otra ventaja es la colaboración. El software libre facilita la coordinación entre investigadores, desarrolladores y profesionales de la seguridad, quienes pueden contribuir con mejoras y nuevas funcionalidades. Esta colaboración abierta fomenta un entorno de innovación constante y rápida evolución tecnológica. Desde el ámbito personal, ha sido de gran utilidad para entender qué metodologías seguir para el proceso de análisis de \textit{logs}. Un ejemplo de esta colaboración en el ámbito de la Universidad de Granada, es la labor realizada por la Oficina de Software Libre \cite{oslugr}, que promueve la enseñanza a jóvenes en estas tecnologías de libre acceso.
+
+El software libre también fomenta la innovación. Cualquiera puede tomar un proyecto existente y modificarlo para adaptarlo a nuevas necesidades o desarrollar nuevas soluciones. Esto hace que las herramientas evolucionen rápidamente y se adapten a los cambios y desafíos del entorno tecnológico. La comunidad de Linux es el principal ejemplo de que la innovación viene de la colaboración altruista, ya que es algo que beneficia a todos. En esta línea, muchas grandes empresas \cite{recluit2024opensource} están empezando a contribuir económicamente para que se invierta en herramientas \textit{opensource}.
+
+La accesibilidad es otro aspecto importante. El software libre hace que las herramientas de seguridad estén disponibles para una audiencia más amplia, incluyendo organizaciones pequeñas y países en desarrollo que no pueden permitirse costosas licencias de software propietario. Esto democratiza el acceso a tecnologías avanzadas y promueve la equidad en el ámbito tecnológico.
+
+En resumen, el software libre y la ciencia abierta permiten que los resultados de la investigación sean compartidos y verificados por la comunidad científica global. Esto no solo mejora la calidad y la fiabilidad de la investigación, sino que también acelera el desarrollo de nuevas tecnologías y soluciones, beneficiando a toda la sociedad.
+
+% ********************************************************************
+
+\newpage
+
+\section{Líneas de investigación y desarrollo futuras (I\texttt{+}D)}
+
+\vspace{4mm}
+
+Para seguir avanzando en el campo de la detección de vectores de ataque a través del análisis de \textit{logs}, se identifican varias líneas de \gls{I+D} que resultan prometedoras y necesarias.
+
+Primero, es fundamental ampliar la variedad de vectores de ataque utilizados en las simulaciones realizadas. Estos pueden incluir desbordamiento de buffer (\textit{buffer overflow}), condiciones de carrera (\textit{race conditions}), inyecciones \gls{SQL}, \gls{XSS} o ejecución de \textit{scripts} con firma desconocida, entre otros. Entender y detectar una gama más amplia de vectores de ataque permitirá crear sistemas de defensa más robustos y adaptativos.
+
+En segundo lugar, se debe evaluar el uso de otros algoritmos de aprendizaje automático (\gls{ML}) como \gls{KNN}, \textit{Random Forest}, \gls{RRNN}s y \gls{SVM}. Probar estos algoritmos en diferentes contextos y con distintos tipos de datos permitirá identificar cuáles son más efectivos para la detección de anomalías en los \textit{logs}.
+
+Además, diversificar las fuentes de \textit{logs} es esencial. Utilizar \textit{logs} de otros sistemas y aplicaciones, como los de servidores Apache, bases de datos y sistemas \gls{SCADA}, ayudará a evaluar la efectividad de los modelos en diferentes contextos. Cada tipo de \textit{log} puede presentar desafíos de preprocesado específicos, y detectar patrones únicos, lo que enriquecerá sin duda el análisis y la capacidad de detección.
+
+Desarrollar técnicas para realizar correlaciones temporales entre eventos de \textit{logs} es otra área clave de investigación. Identificar patrones de ataque que ocurren a lo largo del tiempo puede proporcionar una visión más completa y precisa de las amenazas, permitiendo una detección más temprana y una respuesta más efectiva.
+
+La implementación y optimización de los modelos adaptados para su uso en análisis de \textit{logs} en tiempo real es también una potencial vía de mejora, de modo que sea posible detectar y responder a incidentes de seguridad en tiempo real puede significar la diferencia entre prevenir un ataque y sufrir una brecha de seguridad grave.
+
+Por último, continuar desarrollando métodos para la integración avanzada con \gls{SIEM}s mejorará la capacidad para asociar y analizar datos de \textit{logs} provenientes de múltiples fuentes, dando lugar a un análisis más profundo y una respuesta más coordinada a las amenazas de seguridad.
+
+Estas líneas de investigación no solo buscan mejorar la precisión y eficiencia de los modelos actuales, sino también expandir el alcance y la aplicabilidad del análisis de \textit{logs} en el ámbito de la ciberseguridad, asegurando que las nuevas amenazas puedan ser detectadas y mitigadas de manera efectiva.
