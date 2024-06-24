@@ -1,0 +1,5 @@
+# Ignorar todos los archivos dentro de las carpetas en datasets
+/src/datasets/csv/*
+/src/datasets/json/*
+/src/datasets/log/*
+
